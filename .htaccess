@@ -1,12 +1,14 @@
-RewriteEngine on
- 
- # 如果是一个目录或者文件，就访问目录或文件
- RewriteCond %{REQUEST_FILENAME} !-d
- 
- # 如果文件存在，就直接访问文件，不进行下面的RewriteRule
- RewriteCond %{REQUEST_FILENAME} !-f
+<IfModule mod_rewrite.c>
 
- RewriteRule . index.php
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+</IfModule>
 
 
 

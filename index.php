@@ -4,14 +4,14 @@
  */
 define('DH2Y',__DIR__);
 define('CORE',DH2Y.'/core');
-define('APP',DH2Y.'app');
-
+define('APP',DH2Y.'/app');
+define('MODULE','app');
 define('DEBUG',true);
 
 if(DEBUG){
-    ini_set('display_error','On');
+    ini_set('display_errors','On');
 }else{
-    ini_set('display_error','Off');
+    ini_set('display_errors','Off');
 }
 
 include CORE.'/common/function.php';
