@@ -12,6 +12,11 @@ class dh2y {
      * 框架启动入口
      */
     static public function run(){
+        //访问日志
+        \core\lib\log::init();
+        \core\lib\log::log('hello');
+
+        //路由定义
         $rout = new \core\lib\route();
         $controller = $rout->controller;
         $action = $rout->action;

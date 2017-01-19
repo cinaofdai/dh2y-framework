@@ -4,6 +4,8 @@
  */
 namespace core\lib;
 
+use core\lib\config;
+
 class route
 {
 
@@ -21,10 +23,12 @@ class route
             if(isset($pathUrl[0])){
                 $this->controller = $pathUrl[0];
             }
+            unset($pathUrl[0]);
             if(isset($pathUrl[1])){
                 $this->action = $pathUrl[1];
+                unset($pathUrl[1]);
             }else{
-                $this->action = 'index';
+                $this->action = config::get('ACTION','route');
             }
 
             //url多余部分转化 GET
@@ -37,8 +41,8 @@ class route
                 $i = $i + 2;
             }
         }else{
-            $this->controller = 'index';
-            $this->action = 'index';
+            $this->controller = config::get('CONTROLLER','route');
+            $this->action = config::get('ACTION','route');
         }
     }
 }
