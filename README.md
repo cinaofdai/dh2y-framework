@@ -21,6 +21,7 @@ cd dh2y-framework
 composer install
 ```
 
-##三开始你们的项目吧
+##三、提交问题bug
+bug反馈：https://github.com/cinaofdai/dh2y-framework/issues/new
 
 
