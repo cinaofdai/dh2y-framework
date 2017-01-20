@@ -20,10 +20,10 @@ class file{
      * 2. 写入日志
      */
     public function log($message,$file = 'log'){
-       if( !is_dir($this->path)){
-           mkdir($this->path,'0777',true);
+       if( !is_dir($this->path.date('Ymd'))){
+           mkdir($this->path.date('Ymd'),'0777',true);
        }
-        $message = date('Y-m-d H:i:s') . $message;
-        return file_put_contents($this->path.$file.'.php',json_encode($message));
+        $logfile = $this->path.date('Ymd').'/'.date('YmdH').$file.'.php';
+        return file_put_contents($logfile,date('Y-m-d H:i:s').json_encode($message).PHP_EOL,FILE_APPEND);
     }
 }

@@ -1,0 +1,13 @@
+{
+  "name":"DH2Y",
+  "description":"个人业务快速开发PHP框架",
+  "type":"Framework",
+  "keywords":[
+    "PHP","PHP Framework"
+  ],
+  "require":{
+    "php":">=5.3.0",
+    "filp/whoops":"*"
+  }
+
+}

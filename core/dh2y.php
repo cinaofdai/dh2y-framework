@@ -12,9 +12,8 @@ class dh2y {
      * 框架启动入口
      */
     static public function run(){
-        //访问日志
+        //访问日志初始化
         \core\lib\log::init();
-        \core\lib\log::log('hello');
 
         //路由定义
         $rout = new \core\lib\route();
@@ -28,6 +27,7 @@ class dh2y {
             include $ctrlFile;
             $ctrl = new $ctrlClass();
             $ctrl->$action();
+            \core\lib\log::log('controller:'.$controller.' action:'.$action);
         }else{
             throw new \Exception('找不到控制器'.$controller);
         }
