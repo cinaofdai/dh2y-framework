@@ -26,10 +26,22 @@ class controller
      * @throws \Exception
      */
     public function display($file){
-        $view = APP.'/views/'.$file;
+
+        //获取控制器及动作创建视图
+        $contrl = \core\dh2y::$controller;
+        $file = $file?$file:\core\dh2y::$action;
+
+        $view = APP.'/views/'.$contrl.'/'.$file.'.php';
         if(is_file($view)){
-            extract($this->assign);
-            include $view;
+
+            $loader = new \Twig_Loader_Filesystem(APP.'/views/');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => config::get('CACHE','log'),
+                'debug' => DEBUG,
+            ));
+
+            $template = $twig->load($contrl.'/'.$file.'.php');
+            $template->display($this->assign?$this->assign:'');
         }else{
             throw new \Exception('找不到视图文件'.$file);
         }

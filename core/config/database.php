@@ -2,8 +2,14 @@
 /**
  * 数据库配置
  */
+
 return array(
-    'DSN'       => 'mysql:host=localhost;dbname=dh2y',
-    'USERNAME'  => 'root',
-    'PASSWORD'    => 'root',
+
+    // 必须配置项
+    'database_type' => 'mysql',
+    'database_name' => 'dh2y',
+    'server' => 'localhost',
+    'username' => 'root',
+    'password' => 'root',
+    'charset' => 'utf8',
 );

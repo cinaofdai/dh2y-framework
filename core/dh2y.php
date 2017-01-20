@@ -7,7 +7,8 @@ namespace core;
 class dh2y {
 
     public static $classMap = array();
-
+    public static $controller;
+    public static $action;
     /**
      * 框架启动入口
      */
@@ -17,8 +18,8 @@ class dh2y {
 
         //路由定义
         $rout = new \core\lib\route();
-        $controller = $rout->controller;
-        $action = $rout->action;
+        self::$controller = $controller = $rout->controller;
+        self::$action = $action = $rout->action;
         $ctrlFile = APP.'/controller/'.$controller.'Controller.php';
         $ctrlClass = '\\'.MODULE.'\controller\\'.$controller.'Controller';
 

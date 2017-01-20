@@ -7,4 +7,5 @@ return array(
     'OPTION'    =>array(
             'PATH'    =>    APP.'/runtime/log/',
     ),
+    'CACHE' => APP.'/runtime/template/',
 );
