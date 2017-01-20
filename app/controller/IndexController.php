@@ -18,7 +18,7 @@ class IndexController extends controller
         $ok = 'ok 的';
         $this->assign('data',$data);
         $this->assign('ok',$ok);
-        $this->display('index');
+        $this->display();
     }
 
 }

@@ -25,7 +25,7 @@ class controller
      * @param $file
      * @throws \Exception
      */
-    public function display($file){
+    public function display($file = null){
 
         //获取控制器及动作创建视图
         $contrl = \core\dh2y::$controller;
