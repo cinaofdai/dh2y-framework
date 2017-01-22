@@ -11,6 +11,7 @@ class route
 
     public $controller;
     public $action;
+    public $modul;
 
     /**
      * 路由初解析
@@ -20,20 +21,31 @@ class route
         if(isset($_SERVER['REDIRECT_URL'])&&$_SERVER['REDIRECT_URL']!='/'){
             $path = $_SERVER['REDIRECT_URL'];
             $pathUrl = explode('/',trim($path,'/'));
-            if(isset($pathUrl[0])){
-                $this->controller = $pathUrl[0];
+
+            //如果是基数进入moduls
+            $m = 0;
+            if(count($pathUrl)%2 == 1){
+                $m = 1;
+                $this->modul = $pathUrl[0];
             }
-            unset($pathUrl[0]);
-            if(isset($pathUrl[1])){
-                $this->action = $pathUrl[1];
-                unset($pathUrl[1]);
+
+            if(isset($pathUrl[0+$m])){
+                $this->controller = $pathUrl[0+$m];
+                unset($pathUrl[0+$m]);
+            }else{
+                $this->controller = config::get('CONTROLLER','route');
+            }
+
+            if(isset($pathUrl[1+$m])){
+                $this->action = $pathUrl[1+$m];
+                unset($pathUrl[1+$m]);
             }else{
                 $this->action = config::get('ACTION','route');
             }
 
             //url多余部分转化 GET
             $count = count($pathUrl);
-            $i = 2;
+            $i = 2+$m;
             while($i < $count){
                 if(isset($pathUrl[$i+1])){
                     $_GET[$pathUrl[$i]] = $pathUrl[$i+1];
