@@ -4,6 +4,8 @@ namespace app\controller;
 
 use app\model\AdminModel;
 use core\lib\controller;
+use core\util\Cookies;
+use core\util\Session;
 use core\util\String;
 
 
@@ -11,14 +13,11 @@ class IndexController extends controller
 {
     public function index(){
 
-      $model = new AdminModel();
-        $data = $model->findAll();
+        //p(cookie('dailin'));
 
-        $str = String::uuid();
-        $data = 'this is view' . $str;
-        $ok = 'ok 的';
-        $this->assign('data',$data);
-        $this->assign('ok',$ok);
+        $obj = new Cookies();
+        $obj->set('cookietest','dh2ybfgb');
+        p($obj->get('cookietest'));
         $this->display();
     }
 
