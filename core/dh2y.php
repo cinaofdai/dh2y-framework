@@ -37,7 +37,9 @@ class dh2y {
             include $ctrlFile;
             $ctrl = new $ctrlClass();
             $ctrl->$action();
-            \core\lib\log::log('controller:'.$controller.' action:'.$action);
+
+            $modul = self::$modul?$modul:'';
+            \core\lib\log::log('modul:'.$modul.' controller:'.$controller.' action:'.$action);
         }else{
             throw new \Exception('找不到控制器'.$controller);
         }
