@@ -16,8 +16,9 @@ class IndexController extends controller
         //p(cookie('dailin'));
 
         $obj = new Cookies();
-        $obj->set('cookietest','dh2ybfgb');
+
         p($obj->get('cookietest'));
+
         $this->display();
     }
 

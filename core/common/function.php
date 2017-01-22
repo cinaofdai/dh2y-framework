@@ -1,5 +1,23 @@
 <?php
 
+
+/**
+ * php<5.4
+ * array_column函数定义
+ */
+if (!function_exists('array_column')) {
+    function array_column($arr, $col, $key = '') {
+        if (!$arr) return false;
+        $res = array();
+        foreach ($arr as $val) {
+            if ($key) $res[$val[$key]] = $val[$col];
+            else $res[] = $val[$col];
+        }
+        return $res;
+    }
+}
+
+
 /**
  * --------------------------
  * 输出对应的变量或者数组
