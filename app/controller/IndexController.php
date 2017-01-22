@@ -7,18 +7,18 @@ use core\lib\controller;
 use core\util\Cookies;
 use core\util\Session;
 use core\util\String;
+use core\util\Url;
 
 
 class IndexController extends controller
 {
     public function index(){
 
-        //p(cookie('dailin'));
+        p(get('id'));
+        p(get('name'));
+        $rout =  Url::toRoute(['index/index','id'=>1,'name'=>'daitest']);
 
-        $obj = new Cookies();
-
-        p($obj->get('cookietest'));
-
+        $this->assign('rout',$rout);
         $this->display();
     }
 

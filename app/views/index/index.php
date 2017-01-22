@@ -1,4 +1,5 @@
 {% extends "/layout/layout.php" %}
 {% block content %}
-{{data}}
+
+<a href="{{rout}}">点击</a>
 {% endblock %}
