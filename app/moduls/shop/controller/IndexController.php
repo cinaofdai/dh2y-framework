@@ -3,7 +3,6 @@
 namespace app\moduls\shop\controller;
 
 
-use app\model\AdminModel;
 use core\lib\controller;
 
 class IndexController extends controller

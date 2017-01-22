@@ -5,6 +5,7 @@
 
 <content>
     {% block content %}
+
     {% endblock %}
 </content>
 
