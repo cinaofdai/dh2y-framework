@@ -20,6 +20,9 @@ $dh2yConfig = array(
     'SESSION_CALLBACK'       => '',           //设置Session 对象反序列化时候的回调函数 回调函数方法名
     'SESSION_EXPIRE'         =>  3600,       // session有效期
 
+    //上传文件配置
+    'FILE_UPLOAD_TYPE'      =>  'Local',    // 文件上传方式
+
 );
 
 if(is_file($path)){
