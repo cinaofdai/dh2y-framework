@@ -30,12 +30,12 @@ class controller
         //获取控制器及动作创建视图
         $contrl = \core\dh2y::$controller;
         $file = $file?$file:\core\dh2y::$action;
-        $modul = \core\dh2y::$modul;
+        $module = \core\dh2y::$module;
 
         //是模块进入模块视图
-        if($modul){
-            $view = APP.'/moduls/'.$modul.'/views/'.$contrl.'/'.$file.'.php';
-            $modulView = APP.'/moduls/'.$modul.'/views/';
+        if($module){
+            $view = APP.'/modules/'.$module.'/views/'.$contrl.'/'.$file.'.php';
+            $modulView = APP.'/modules/'.$module.'/views/';
         }else{
             $view = APP.'/views/'.$contrl.'/'.$file.'.php';
             $modulView = APP.'/views/';

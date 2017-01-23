@@ -9,7 +9,7 @@ class dh2y {
     public static $classMap = array();
     public static $controller;      //控制器
     public static $action;          //方法
-    public static $modul;           //模块
+    public static $module;           //模块
     /**
      * 框架启动入口
      */
@@ -25,10 +25,10 @@ class dh2y {
         $ctrlClass = '\\'.MODULE.'\controller\\'.$controller.'Controller';
 
         //如果存在模块
-        if($rout->modul){
-            self::$modul = $modul = $rout->modul;
-            $ctrlFile = APP.'/moduls/'.$modul.'/controller/'.$controller.'Controller.php';
-            $ctrlClass = '\\'.MODULE.'\moduls\\'.$modul.'\controller\\'.$controller.'Controller';
+        if($rout->module){
+            self::$module = $module = $rout->module;
+            $ctrlFile = APP.'/modules/'.$module.'/controller/'.$controller.'Controller.php';
+            $ctrlClass = '\\'.MODULE.'\modules\\'.$module.'\controller\\'.$controller.'Controller';
 
         }
 
@@ -38,8 +38,8 @@ class dh2y {
             $ctrl = new $ctrlClass();
             $ctrl->$action();
 
-            $modul = self::$modul?$modul:'';
-            \core\lib\log::log('modul:'.$modul.' controller:'.$controller.' action:'.$action);
+            $module = self::$module?$module:'';
+            \core\lib\log::log('module:'.$module.' controller:'.$controller.' action:'.$action);
         }else{
             throw new \Exception('找不到控制器'.$controller);
         }

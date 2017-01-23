@@ -11,7 +11,7 @@ class route
 
     public $controller;
     public $action;
-    public $modul;
+    public $module;
 
     /**
      * 路由初解析
@@ -22,11 +22,11 @@ class route
             $path = $_SERVER['REDIRECT_URL'];
             $pathUrl = explode('/',trim($path,'/'));
 
-            //如果是基数进入moduls
+            //如果是基数进入modules
             $m = 0;
             if(count($pathUrl)%2 == 1){
                 $m = 1;
-                $this->modul = $pathUrl[0];
+                $this->module = $pathUrl[0];
             }
 
             if(isset($pathUrl[0+$m])){
