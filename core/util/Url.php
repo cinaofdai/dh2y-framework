@@ -10,12 +10,22 @@ class Url
 {
 
     /**
+     * 模仿yii路由类
      * @param string $url
      * @param bool $scheme
+     * @return mixed|string
      */
     public static function to($url = '', $scheme = false)
     {
+        if (is_array($url)) {
+            return static::toRoute($url, $scheme);
+        }
 
+        if (!$scheme) {
+            return $url;
+        }
+
+        return self::home().'/'.$url;
     }
 
     /**
