@@ -3,7 +3,7 @@
  * 路由指向类
  */
 
-namespace core\util;
+namespace core\util\dh2y;
 
 
 class Url
