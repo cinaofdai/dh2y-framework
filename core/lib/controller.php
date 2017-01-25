@@ -11,6 +11,11 @@ class controller
 
     public $assign;
 
+    public function __construct()
+    {
+        $this->assign['STATUS'] = config::get('TMPL_PARSE_STRING','config');
+    }
+
     /**
      * 传递数据到视图
      * @param $name
