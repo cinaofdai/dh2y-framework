@@ -40,17 +40,17 @@ class Url
         $url   =  $route[0];
         unset($route[0]);
 
-        if(\core\dh2y::$modul){
-            $modul = \core\dh2y::$modul.'/';
+        if(\core\dh2y::$module){
+            $module = \core\dh2y::$module.'/';
         }else{
-            $modul = '';
+            $module = '';
         }
 
         $params = http_build_query($route)?'?'.http_build_query($route):'';
         if ($scheme) {
-            return static::Home().'/'.$modul.$url.$params;
+            return static::home().'/'.$module.$url.$params;
         } else {
-            return '/'.$modul.$url.$params;
+            return '/'.$module.$url.$params;
         }
     }
 
