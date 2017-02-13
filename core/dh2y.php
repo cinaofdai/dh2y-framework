@@ -14,6 +14,7 @@ class dh2y {
      * 框架启动入口
      */
     static public function run(){
+		
         //访问日志初始化
         \core\lib\log::init();
 
@@ -45,6 +46,22 @@ class dh2y {
         }
     }
 
+	/**
+     * post请求判断
+     * @return bool
+     */
+    static public function IS_POST(){
+       return  $_SERVER['REQUEST_METHOD'] =='POST' ? true : false;
+    }
+
+    /**
+     * get请求判断
+     * @return bool
+     */
+    static public function IS_GET(){
+      return  $_SERVER['REQUEST_METHOD'] =='GET' ? true : false;
+    }
+	
     /**
      * 自动加载类库
      */
